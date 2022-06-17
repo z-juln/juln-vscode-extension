@@ -1,5 +1,5 @@
 {
-  "name": "@juln/vscode-extension",
+  "name": "juln",
   "displayName": "juln",
   "description": "vscode全套插件，包括代码模板生成、cicd等涵盖整个开发流程",
   "version": "0.0.1",
