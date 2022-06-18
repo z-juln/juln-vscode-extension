@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
 import './style/index.less';
 
 export interface <%= changeCase(name, 'upper-camel-case') %>Props {}

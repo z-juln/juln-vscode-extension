@@ -21,7 +21,3 @@ vscode侧边栏的调试面板直接调试
 ## 未来
 编写好支持远程下载模板、缓存更新的cli后，继承到该插件中
 支持cicd
-
-## bug
-
-把super-ejs抽离成单独的npm包后，String.prototype被重置，是否是node的行为？

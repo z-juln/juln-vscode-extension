@@ -6,10 +6,13 @@ import * as superEjs from 'super-ejs';
 import { config } from '../config';
 import __root__ from '../utils/root';
 
+const { workspaceFolders } = workspace;
+
 const tplDirPath = path.resolve(__root__, 'assets/template/component');
 const templateMainFile = './index.tsx';
 
 const createComponent = async (folderPath?: Uri) => {
+  const isOnlyWorkspace = workspaceFolders && workspaceFolders.length === 1;
   const fromCmd = !folderPath;
   let dirPath = folderPath?.fsPath;
 
@@ -22,16 +25,20 @@ const createComponent = async (folderPath?: Uri) => {
   if (!inputedName) return;
   const componentName = changeCase(inputedName, config.filenameCase);
 
-  if (fromCmd) {
+  if (fromCmd && isOnlyWorkspace) { // 启用cmd
+    const rootPath = workspaceFolders[0].uri.path;
     dirPath = await window.showInputBox({
       prompt: "请输入生成路径",
       placeHolder: "默认为'./src/components'",
       ignoreFocusOut: true,
       value: './src/components',
     });
+    if (dirPath) {
+      dirPath = path.resolve(rootPath, dirPath);
+    }
   }
+
   if (!dirPath) return;
-  dirPath = path.resolve(dirPath);
 
   if (fs.existsSync(path.resolve(dirPath, componentName))) {
     const isContinue = await window.showQuickPick(
