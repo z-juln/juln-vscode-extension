@@ -1,11 +1,9 @@
 import { window, InputBoxOptions, Uri, workspace } from 'vscode';
 import * as path from 'path';
 import * as fs from 'fs-extra';
-// import * as superEjs from 'super-ejs';
-// 模块抽离貌似会导致String.prototype被重置???然后ejs模板中就没法使用changeCase
-import superEjs from '../utils/superEjs';
-import { config } from '../config';
 import changeCase from '@juln/change-case';
+import * as superEjs from 'super-ejs';
+import { config } from '../config';
 import __root__ from '../utils/root';
 
 const tplDirPath = path.resolve(__root__, 'assets/template/component');
@@ -66,7 +64,7 @@ const createFiles = async (dirPath: string, componentName: string) => {
   return superEjs.gerenateDir(
     path.resolve(dirPath, componentName),
     tplDirPath,
-    { name: componentName },
+    { name: componentName, changeCase },
   );
 };
 

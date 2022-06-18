@@ -1,15 +1,15 @@
 import { memo } from 'react';
 import './style/index.less';
 
-export interface <%= name.changeCase('upper-camel-case') %>Props {}
+export interface <%= changeCase(name, 'upper-camel-case') %>Props {}
 
-export const <%= name.changeCase('upper-camel-case') %>: React.FC<<%= name.changeCase('upper-camel-case') %>Props> = () => {
+export const <%= changeCase(name, 'upper-camel-case') %>: React.FC<<%= changeCase(name, 'upper-camel-case') %>Props> = () => {
 
   return (
     <div className='<%= name %>'>
-      <%= name.changeCase('upper-camel-case') %>
+      <%= changeCase(name, 'upper-camel-case') %>
     </div>
   );
 };
 
-export default memo(<%= name.changeCase('upper-camel-case') %>);
+export default memo(<%= changeCase(name, 'upper-camel-case') %>);

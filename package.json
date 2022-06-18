@@ -4,6 +4,10 @@
   "description": "vscode全套插件，包括代码模板生成、cicd等涵盖整个开发流程",
   "version": "0.0.1",
   "publisher": "juln",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/z-juln/juln-vscode-extension.git"
+  },
   "engines": {
     "vscode": "^1.68.0"
   },
@@ -151,6 +155,6 @@
     "@juln/change-case": "^0.0.3",
     "fs-extra": "^10.1.0",
     "glob": "^8.0.3",
-    "super-ejs": "^0.0.5"
+    "super-ejs": "^0.0.6"
   }
 }
